@@ -95,13 +95,11 @@ public class Logic {
         boolean result = false;
         for (int i = 0; i < table.length; i++) {
             if (table[i][i] == 1) {
-                boolean vert = Logic.monoVertikal(table, i);
-                boolean horiz = Logic.monoHorizontal(table, i);
-                if (vert || horiz) {
+                 if (Logic.monoVertikal(table, i) || Logic.monoHorizontal(table, i)) {
                     result = true;
+                    break;
                 }
             }
-
         }
         return result;
     }
