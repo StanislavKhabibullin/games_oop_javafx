@@ -58,4 +58,20 @@ public class Logic {
                 "figures=" + Arrays.toString(this.figures) +
                 '}';
     }
+
+    private boolean free(Cell[] steps) throws OccupiedCellException {
+        int rez = -1;
+        for (int i = 0; i < steps.length; i++) {
+        if (findBy(steps[i]) != -1) {
+            throw new OccupiedCellException(String.format("There is a figure on the way"));
+        }
+        }
+        return true;
+    }
+
+    private class OccupiedCellException extends Exception {
+        public OccupiedCellException(String message) {
+            super(message);
+        }
+    }
 }
